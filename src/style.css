@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("/assets/fonts/JetBrainsMono-VariableFont_wght.ttf") format("truetype-variations");
+    font-weight: 400 700;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --body-fs: 1.125rem;
+    --heading-medium-fs: 1.5rem;
+    --heading-large-fs: 2rem;
+
+    --red-clr: #f64a4a;
+    --orange-clr: #fb7c58;
+    --yellow-clr: #f8cd65;
+
+    --neon-green-clr: #a4ffaf;
+    --almost-white-clr: #e6e5ea;
+    --grey-clr: #817d92;
+    --dark-grey-clr: #24232c;
+    --very-dark-grey-clr: #18171f;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'JetBrainsMono', monospace;
+    font-size: var(--body-fs);
+    font-weight: bold;
+    line-height: 1.3;
+    color: var(--almost-white-clr);
+    background: linear-gradient(#14131b, #08070b);
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--neon-green-clr);
+}
+
+input[type="checkbox"] {
+    accent-color: var(--neon-green-clr);
+}
