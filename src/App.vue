@@ -9,7 +9,7 @@ import PasswordGenerator from './components/PasswordGenerator.vue'
   </div>
 </template>
 
-<style module>
+<style module lang="scss">
 .container {
   display: flex;
   flex-direction: column;
@@ -21,7 +21,12 @@ import PasswordGenerator from './components/PasswordGenerator.vue'
 .title {
   margin: 0;
   margin-block-end: 2rem;
-  font-size: var(--font-size);
+  font-size: var(--heading-medium-fs);
   color: var(--grey-clr);
+
+  @media (max-width: 600px) {
+    margin-block-end: 1rem;
+    font-size: var(--body-fs);
+  }
 }
 </style>
