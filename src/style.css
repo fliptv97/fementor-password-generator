@@ -26,6 +26,14 @@
     --very-dark-grey-clr: #18171f;
 }
 
+@media (max-width: 600px) {
+    :root {
+        --body-fs: 1rem;
+        --heading-medium-fs: 1.125rem;
+        --heading-large-fs: 1.5rem;
+    }
+}
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -40,6 +48,10 @@ body {
 button {
     font-family: inherit;
     font-size: inherit;
+}
+
+input {
+    font-family: inherit;
 }
 
 input[type="range"] {
