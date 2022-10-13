@@ -93,4 +93,15 @@ export default {
     border-color: var(--neon-green-clr);
     background-color: var(--neon-green-clr);
 }
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem 1.25rem;
+    }
+
+    .meter {
+        display: flex;
+        margin-inline-start: .5rem;
+    }
+}
 </style>
