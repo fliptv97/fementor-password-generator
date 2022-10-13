@@ -1,13 +1,17 @@
 <script setup>
+import Password from './Password.vue';
 import Strength from './Strength.vue';
 import Button from './Button.vue';
 import Length from './Length.vue';
 </script>
 
 <script>
+import generatePassword from './../helpers/generate-password';
+
 export default {
   data() {
     return {
+      password: '',
       passwordLength: 14,
       options: {
         uppercaseLetters: false,
@@ -18,13 +22,17 @@ export default {
     };
   },
   computed: {
+    isGenerateButtonDisabled() {
+      return Object.keys(this.$data.options).filter(key => this.$data.options[key]).length === 0;
+    },
     passwordStrength() {
       return Object.keys(this.$data.options).filter(key => this.$data.options[key]).length;
     }
   },
   methods: {
     onGenerateClick() {
-      console.log(this.$data);
+      this.$data.password
+        = generatePassword(this.$data.passwordLength, this.$data.options);
     }
   }
 }
@@ -32,10 +40,7 @@ export default {
 
 <template>
   <div :class="$style.container">
-    <div :class="[$style.card, $style.passwordCard]">
-      <div :class="$style.password">P4$5W0rD!</div>
-      <img src="/assets/icons/icon-copy.svg" alt="copy" width="32" height="32">
-    </div>
+    <Password :class="[$style.card, $style.passwordCard]" :password="password" />
     
     <div :class="[$style.card, $style.mainCard]">
       <Length :class="$style.length" v-model="passwordLength" />
@@ -76,7 +81,11 @@ export default {
 
       <Strength :class="$style.strength" :value="passwordStrength" />
 
-      <Button text="Generate" @click="onGenerateClick" />
+      <Button
+        text="Generate"
+        @click="onGenerateClick"
+        :disabled="isGenerateButtonDisabled"
+        :withIcon="true" />
     </div>
   </div>
 </template>
@@ -104,11 +113,6 @@ export default {
 .mainCard {
   display: flex;
   flex-direction: column;
-}
-
-.password {
-  flex-grow: 1;
-  font-size: var(--heading-large-fs);
 }
 
 .options {
