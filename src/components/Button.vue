@@ -31,10 +31,21 @@ export default {
     color 300ms ease-in-out,
     opacity 300ms ease-in-out;
 
-  &:not(:disabled):hover {
-    color: var(--neon-green-clr);
-    background: transparent;
-    cursor: pointer;
+  &:not(:disabled) {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--neon-green-clr);
+      background: transparent;
+
+      path {
+        fill: var(--neon-green-clr);
+      }
+    }
   }
 
   &:disabled {
@@ -49,5 +60,5 @@ export default {
   path {
     fill: var(--dark-grey-clr);
   }
-} 
+}
 </style>

@@ -30,6 +30,9 @@ export default {
     }
   },
   methods: {
+    onChange(newPasswordLength) {
+      this.$data.passwordLength = newPasswordLength;
+    },
     onGenerateClick() {
       this.$data.password
         = generatePassword(this.$data.passwordLength, this.$data.options);
@@ -43,7 +46,7 @@ export default {
     <Password :class="[$style.card, $style.passwordCard]" :password="password" />
 
     <div :class="[$style.card, $style.mainCard]">
-      <Length :class="$style.length" v-model="passwordLength" />
+      <Length :class="$style.length" :value="passwordLength" @change="onChange" />
 
       <div :class="$style.options">
         <div :class="$style.optionField">

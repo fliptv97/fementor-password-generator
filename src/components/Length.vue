@@ -1,7 +1,11 @@
 <script>
 export default {
-  props: ['modelValue'],
-  emits: ['update:modelValue']
+  props: ['value'],
+  methods: {
+    handleChange(e) {
+      this.$emit('change', +e.target.value);
+    }
+  }
 }
 </script>
 
@@ -9,10 +13,9 @@ export default {
   <div>
     <div :class="$style.meta">
       <label for="length">Character Length</label>
-      <span :class="$style.value">{{ modelValue }}</span>
+      <span :class="$style.value">{{ value }}</span>
     </div>
-    <input type="range" name="length" id="length" min="8" max="20" :value="modelValue"
-      @change="$emit('update:modelValue', +$event.target.value)" />
+    <input type="range" name="length" id="length" min="8" max="20" :value="value" @change.stop="handleChange" />
   </div>
 </template>
 

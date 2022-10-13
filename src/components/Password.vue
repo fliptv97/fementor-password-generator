@@ -14,7 +14,7 @@ export default {
 
       this.$refs.input.select();
       // For mobile devices
-      this.$refs.input.setSelectionRange(0, 30);
+      this.$refs.input.setSelectionRange(0, 100);
 
       navigator.clipboard.writeText(this.$refs.input.value);
 
