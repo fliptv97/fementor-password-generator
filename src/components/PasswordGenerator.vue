@@ -41,73 +41,67 @@ export default {
 <template>
   <div :class="$style.container">
     <Password :class="[$style.card, $style.passwordCard]" :password="password" />
-    
+
     <div :class="[$style.card, $style.mainCard]">
       <Length :class="$style.length" v-model="passwordLength" />
-      
+
       <div :class="$style.options">
         <div :class="$style.optionField">
-          <input
-            type="checkbox"
-            id="uppercase"
-            v-model="options.uppercaseLetters" />
+          <input type="checkbox" id="uppercase" v-model="options.uppercaseLetters" />
           <label for="uppercase">Include Uppercase Letters</label>
         </div>
 
         <div :class="$style.optionField">
-          <input
-            type="checkbox"
-            id="lowercase"
-            v-model="options.lowercaseLetters" />
+          <input type="checkbox" id="lowercase" v-model="options.lowercaseLetters" />
           <label for="lowercase">Include Lowercase Letters</label>
         </div>
 
         <div :class="$style.optionField">
-          <input
-            type="checkbox"
-            id="numbers"
-            v-model="options.numbers" />
+          <input type="checkbox" id="numbers" v-model="options.numbers" />
           <label for="numbers">Include Numbers</label>
         </div>
 
         <div :class="$style.optionField">
-          <input
-            type="checkbox"
-            id="symbols"
-            v-model="options.symbols" />
+          <input type="checkbox" id="symbols" v-model="options.symbols" />
           <label for="symbols">Include Symbols</label>
         </div>
       </div>
 
       <Strength :class="$style.strength" :value="passwordStrength" />
 
-      <Button
-        text="Generate"
-        @click="onGenerateClick"
-        :disabled="isGenerateButtonDisabled"
-        :withIcon="true" />
+      <Button text="Generate" @click="onGenerateClick" :disabled="isGenerateButtonDisabled" :withIcon="true" />
     </div>
   </div>
 </template>
 
-<style module>
+<style module lang="scss">
 .container {
   width: min(95%, 540px);
 }
 
 .card {
-  padding: 1rem;
+  padding: 2rem;
+  padding-block-start: 1.5rem;
   background-color: var(--dark-grey-clr);
-}
 
-.card:first-child {
-  margin-block-end: 1rem;
+  &:first-child {
+    margin-block-end: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 }
 
 .passwordCard {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 1.25rem 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 }
 
 .mainCard {
@@ -122,9 +116,11 @@ export default {
   margin-block-end: 2rem;
 }
 
-.options input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+.options {
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .optionField {

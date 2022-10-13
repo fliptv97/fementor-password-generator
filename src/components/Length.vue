@@ -6,24 +6,17 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div :class="$style.meta">
-            <label for="length">Character Length</label>
-            <span :class="$style.value">{{ modelValue }}</span>
-        </div>
-        <input
-          type="range"
-          name="length"
-          id="length"
-          min="8"
-          max="20"
-          :value="modelValue"
-          @change="$emit('update:modelValue', +$event.target.value)" />
+  <div>
+    <div :class="$style.meta">
+      <label for="length">Character Length</label>
+      <span :class="$style.value">{{ modelValue }}</span>
     </div>
+    <input type="range" name="length" id="length" min="8" max="20" :value="modelValue"
+      @change="$emit('update:modelValue', +$event.target.value)" />
+  </div>
 </template>
 
 <style module>
-
 .meta {
   display: flex;
   justify-content: space-between;
